@@ -1,15 +1,15 @@
 <template>
   <h3>History</h3>
   <ul id="list" class="list">
-    <li
-      v-for="transaction in transactions"
-      :key="transaction.id"
-      :class="transaction.amount < 0 ? 'minus' : 'plus'"
-    >
-      {{ transaction.text }} <span>${{ transaction.amount }}</span
-      ><button class="delete-btn" @click="deleteTransaction(transaction.id)">
+    <li v-if="transactions.length > 0" v-for="transaction in transactions" :key="transaction.id"
+      :class="transaction.amount < 0 ? 'minus' : 'plus'">
+      {{ transaction.text }} <span>${{ transaction.amount }}</span>
+      <button class="delete-btn" @click="deleteTransaction(transaction.id)">
         x
       </button>
+    </li>
+    <li v-else :key="0">
+      Submit a transaction...
     </li>
   </ul>
 </template>
