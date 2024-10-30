@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+.negative-balance {
+  color: #ff0000;
+}
+
 body {
   background-color: #f7f7f7;
   display: flex;
@@ -125,10 +129,12 @@ input[type='number'] {
 
 .list li.plus {
   border-right: 5px solid #2ecc71;
+  background-color: #2ecc7135;
 }
 
 .list li.minus {
   border-right: 5px solid #c0392b;
+  background-color: #ff000035;
 }
 
 .delete-btn {
