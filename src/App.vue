@@ -65,7 +65,8 @@ const handleTransactionSubmitted = (transactionData) => {
   transactions.value.push({
     id: generateUniqueId(),
     text: transactionData.text,
-    amount: transactionData.amount
+    amount: transactionData.amount,
+    date: formattedDate
   });
 
   savedTransactionsToLocalStorage();
@@ -76,6 +77,9 @@ const handleTransactionSubmitted = (transactionData) => {
 const generateUniqueId = () => {
   return Math.floor(Math.random() * 1000000);
 }
+
+const today = new Date();
+const formattedDate = `${String(today.getMonth() + 1).padStart(2, '0')}/${String(today.getDate()).padStart(2, '0')}/${today.getFullYear()}`;
 
 //Delete transaction
 const handleTransactionDeleted = (id) => {

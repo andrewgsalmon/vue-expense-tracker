@@ -156,3 +156,15 @@ input[type='number'] {
 .list li:hover .delete-btn {
   opacity: 1;
 }
+
+.transaction-date {
+  padding-left: 0.5rem;
+  color: #a0a0a0;
+  font-size: 0.7rem;
+}
+
+.transaction__pending {
+  opacity: calc(75%);
+  font-style: italic;
+  color: #a0a0a0!important;
+}

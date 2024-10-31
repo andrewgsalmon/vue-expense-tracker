@@ -6,6 +6,10 @@
       <input type="text" id="item" placeholder="Enter text..." v-model="text" />
     </div>
     <div class="form-control">
+      <label for="notes">Notes</label>
+      <input type="text" id="notes" placeholder="Add a desciption (optional)" v-model="notes" />
+    </div>
+    <div class="form-control">
       <label for="amount">Amount <br />
         (negative - expense, positive - income)</label>
       <input type="text" id="amount" placeholder="Enter amount..." v-model="amount" />
@@ -20,6 +24,7 @@ import { ref } from 'vue';
 
 const text = ref('');
 const amount = ref('');
+const notes = ref('');
 
 // Get toast interface
 const toast = useToast();
@@ -27,15 +32,16 @@ const toast = useToast();
 const emit = defineEmits(['transactionSubmitted']);
 
 const onSubmit = () => {
-  if (!text.value || !amount.value) {
+  if (!item.value || !amount.value) {
     // Display a toast error message if either field is empty
-    toast.error('Both fields must be filled.');
+    toast.error('Item and amount must be added.');
     return;
   }
 
   const transactionData = {
     text: text.value,
     amount: parseFloat(amount.value),
+    notes: notes.value
   };
 
   emit('transactionSubmitted', transactionData);
@@ -43,5 +49,6 @@ const onSubmit = () => {
   // Clear form fields
   text.value = '';
   amount.value = '';
+  notes.value = '';
 };
 </script>
